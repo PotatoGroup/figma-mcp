@@ -4,7 +4,7 @@ import type {
   StrokeWeights,
   HasFramePropertiesTrait,
 } from "@figma/rest-api-spec";
-import type { CSSHexColor, CSSRGBAColor } from "~/transformers/style.js";
+import type { CSSHexColor, CSSRGBAColor } from "../transformers/style.js";
 
 export function hasValue<K extends PropertyKey, T>(
   key: K,

@@ -1,6 +1,6 @@
 import type { Node as FigmaDocumentNode } from "@figma/rest-api-spec";
-import { isVisible } from "~/utils/common.js";
-import { hasValue } from "~/utils/identity.js";
+import { isVisible } from "../utils/common.js";
+import { hasValue } from "../utils/identity.js";
 import type {
   ExtractorFn,
   TraversalContext,

@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import type { FigmaService } from '~/figma'
+import type { FigmaService } from '../../figma'
 import type { GetFileResponse, GetFileNodesResponse } from '@figma/rest-api-spec';
-import { simplifyRawFigmaObject, allExtractors } from "~/extractors";
+import { simplifyRawFigmaObject, allExtractors } from "../../extractors";
 import yaml from "js-yaml";
 
 const parameters = {

@@ -1,5 +1,5 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { FigmaService } from '~/figma'
+import { FigmaService } from '../figma'
 import { getFigmaDataTool, getFigmaImagesTool } from './tools'
 import type { GetFigmaImagesParams, GetFigmaDataParams } from './tools'
 import { z } from 'zod'

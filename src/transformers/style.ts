@@ -5,8 +5,8 @@ import type {
   RGBA,
   Transform,
 } from "@figma/rest-api-spec";
-import { generateCSSShorthand, isVisible } from "~/utils/common.js";
-import { hasValue, isStrokeWeights } from "~/utils/identity.js";
+import { generateCSSShorthand, isVisible } from "../utils/common.js";
+import { hasValue, isStrokeWeights } from "../utils/identity.js";
 
 export type CSSRGBAColor = `rgba(${number}, ${number}, ${number}, ${number})`;
 export type CSSHexColor = `#${string}`;

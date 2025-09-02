@@ -1,5 +1,5 @@
 import type { Node as FigmaDocumentNode } from "@figma/rest-api-spec";
-import { hasValue } from "~/utils/identity.js";
+import { hasValue } from "../utils/identity.js";
 import { isTruthy } from "remeda";
 
 export type SimplifiedTextStyle = Partial<{

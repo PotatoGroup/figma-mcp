@@ -1,6 +1,4 @@
 import { config as loadEnv } from "dotenv";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
 import { resolve } from "path";
 
 interface ServerConfig {
@@ -18,7 +16,8 @@ interface CliArgs {
   "skip-image-downloads"?: boolean;
 }
 
-export function getServerConfig(): ServerConfig {
+export async function getServerConfig(): Promise<ServerConfig> {
+  const [yargs, hideBin] = await Promise.all([import("yargs").then(({ default: yargs }) => yargs), import('yargs/helpers').then(({ hideBin }) => hideBin)])
   const argv = yargs(hideBin(process.argv))
     .options({
       "access-token": {
@@ -47,6 +46,7 @@ export function getServerConfig(): ServerConfig {
     .help()
     .version(process.env['NPM_PACKAGE_VERSION'] ?? "unknown")
     .parseSync() as CliArgs;
+
 
   let envFilePath: string;
 

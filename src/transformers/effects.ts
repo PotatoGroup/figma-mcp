@@ -4,8 +4,8 @@ import type {
   BlurEffect,
   Node as FigmaDocumentNode,
 } from "@figma/rest-api-spec";
-import { formatRGBAColor } from "~/transformers/style.js";
-import { hasValue } from "~/utils/identity.js";
+import { formatRGBAColor } from "../transformers/style.js";
+import { hasValue } from "../utils/identity.js";
 
 export type SimplifiedEffects = {
   boxShadow?: string;

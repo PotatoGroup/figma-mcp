@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { FigmaService } from '~/figma'
+import type { FigmaService } from '../../figma'
 
 const parameters = {
   fileKey: z

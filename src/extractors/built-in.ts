@@ -1,15 +1,15 @@
 import type { ExtractorFn } from "./types.js";
-import { buildSimplifiedLayout } from "~/transformers/layout.js";
-import { buildSimplifiedStrokes, parsePaint } from "~/transformers/style.js";
-import { buildSimplifiedEffects } from "~/transformers/effects.js";
+import { buildSimplifiedLayout } from "../transformers/layout.js";
+import { buildSimplifiedStrokes, parsePaint } from "../transformers/style.js";
+import { buildSimplifiedEffects } from "../transformers/effects.js";
 import {
   extractNodeText,
   extractTextStyle,
   hasTextStyle,
   isTextNode,
-} from "~/transformers/text.js";
-import { hasValue, isRectangleCornerRadii } from "~/utils/identity.js";
-import { generateVarId } from "~/utils/common.js";
+} from "../transformers/text.js";
+import { hasValue, isRectangleCornerRadii } from "../utils/identity.js";
+import { generateVarId } from "../utils/common.js";
 
 /**
  * Helper function to find or create a global variable.

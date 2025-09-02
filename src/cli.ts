@@ -7,7 +7,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 config({ path: resolve(process.cwd(), ".env") });
 
 const startServer = async () => {
-  const config = getServerConfig();
+  const config = await getServerConfig();
   const server = createServer(config);
   const transport = new StdioServerTransport();
   await server.connect(transport);

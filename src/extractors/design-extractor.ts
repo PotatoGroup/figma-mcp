@@ -5,8 +5,8 @@ import type {
   Component,
   ComponentSet,
 } from "@figma/rest-api-spec";
-import { simplifyComponents, simplifyComponentSets } from "~/transformers/component.js";
-import { isVisible } from "~/utils/common.js";
+import { simplifyComponents, simplifyComponentSets } from "../transformers/component.js";
+import { isVisible } from "../utils/common.js";
 import type { ExtractorFn, TraversalOptions, GlobalVars, SimplifiedDesign } from "./types.js";
 import { extractFromDesign } from "./node-walker.js";
 
@@ -15,7 +15,7 @@ import { extractFromDesign } from "./node-walker.js";
  */
 export function simplifyRawFigmaObject(
   apiResponse: GetFileResponse | GetFileNodesResponse,
-  nodeExtractors: ExtractorFn[],
+  nodeExtractors: ExtractorFn[],  
   options: TraversalOptions = {},
 ): SimplifiedDesign {
   // Extract components, componentSets, and raw nodes from API response

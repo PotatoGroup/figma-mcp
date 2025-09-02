@@ -1,10 +1,10 @@
-import { isInAutoLayoutFlow, isFrame, isLayout, isRectangle } from "~/utils/identity.js";
+import { isInAutoLayoutFlow, isFrame, isLayout, isRectangle } from "../utils/identity.js";
 import type {
   Node as FigmaDocumentNode,
   HasFramePropertiesTrait,
   HasLayoutTrait,
 } from "@figma/rest-api-spec";
-import { generateCSSShorthand, pixelRound } from "~/utils/common.js";
+import { generateCSSShorthand, pixelRound } from "../utils/common.js";
 
 export interface SimplifiedLayout {
   mode: "none" | "row" | "column";

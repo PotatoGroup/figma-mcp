@@ -5,7 +5,7 @@ import type {
   GetFileNodesResponse,
   GetImageFillsResponse,
 } from '@figma/rest-api-spec'
-import { downloadAndProcessImage, type ImageProcessingResult } from '~/utils/image-processing'
+import { downloadAndProcessImage, type ImageProcessingResult } from '../utils/image-processing'
 import path from 'path'
 
 type GetImagesParams = {

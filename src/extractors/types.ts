@@ -1,14 +1,14 @@
 import type { Node as FigmaDocumentNode } from "@figma/rest-api-spec";
-import type { StyleId } from "~/utils/common.js";
-import type { SimplifiedTextStyle } from "~/transformers/text.js";
-import type { SimplifiedLayout } from "~/transformers/layout.js";
-import type { SimplifiedFill, SimplifiedStroke } from "~/transformers/style.js";
-import type { SimplifiedEffects } from "~/transformers/effects.js";
+import type { StyleId } from "../utils/common.js";
+import type { SimplifiedTextStyle } from "../transformers/text.js";
+import type { SimplifiedLayout } from "../transformers/layout.js";
+import type { SimplifiedFill, SimplifiedStroke } from "../transformers/style.js";
+import type { SimplifiedEffects } from "../transformers/effects.js";
 import type {
   ComponentProperties,
   SimplifiedComponentDefinition,
   SimplifiedComponentSetDefinition,
-} from "~/transformers/component.js";
+} from "../transformers/component.js";
 
 export type StyleTypes =
   | SimplifiedTextStyle
