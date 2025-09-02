@@ -1,0 +1,48 @@
+{
+  "name": "figma-mcp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "figma-mcp": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "figma",
+    "mcp",
+    "modelcontextprotocol"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "tangxiaoxin",
+    "email": "1302947749@qq.com",
+    "url": "https://github.com/hey-tangxiaoxin"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "@figma/rest-api-spec": "^0.33.0",
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "@types/js-yaml": "^4.0.9",
+    "dotenv": "^17.2.1",
+    "js-yaml": "^4.1.0",
+    "remeda": "^2.30.0",
+    "sharp": "^0.34.3",
+    "yargs": "^18.0.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/yargs": "^17.0.33",
+    "typescript": "^5.9.2"
+  }
+}
