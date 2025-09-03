@@ -1,8 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { FigmaService } from '../figma'
-import { getFigmaDataTool, getFigmaImagesTool } from './tools'
-import type { GetFigmaImagesParams, GetFigmaDataParams } from './tools'
-import { z } from 'zod'
+import { getFigmaDataTool, getFigmaImagesTool, reactComponentGeneratorTool } from './tools'
+import type { GetFigmaImagesParams, GetFigmaDataParams, ReactComponentGeneratorParams } from './tools'
 
 
 type CreateServerOptions = {
@@ -37,4 +36,10 @@ const registerTools = (mcpServer: McpServer, figmaService: FigmaService, options
       (args) => getFigmaImagesTool.execute(args as GetFigmaImagesParams, figmaService)
     );
   }
+  mcpServer.tool(
+    reactComponentGeneratorTool.name,
+    reactComponentGeneratorTool.description,
+    reactComponentGeneratorTool.parameters,
+    (args) => reactComponentGeneratorTool.execute(args as ReactComponentGeneratorParams) as any
+  );
 }

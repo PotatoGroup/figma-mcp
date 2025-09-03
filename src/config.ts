@@ -22,7 +22,7 @@ export async function getServerConfig(): Promise<ServerConfig> {
     .options({
       "access-token": {
         type: "string",
-        description: "Figma API key (Personal Access Token)",
+        description: "Figma Access Token",
       },
       env: {
         type: "string",
