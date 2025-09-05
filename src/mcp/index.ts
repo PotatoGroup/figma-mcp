@@ -7,7 +7,7 @@ import type { GetFigmaImagesParams, GetFigmaDataParams, ReactComponentGeneratorP
 type CreateServerOptions = {
   outputFormat: "yaml" | "json";
   skipImageDownloads?: boolean;
-  accessToken: string;
+  figmaApiKey: string;
 }
 
 export const createServer = (options: CreateServerOptions) => {
@@ -15,12 +15,12 @@ export const createServer = (options: CreateServerOptions) => {
     name: "Figma MCP Server",
     version: process.env["NPM_PACKAGE_VERSION"] ?? "unknown",
   });
-  const figmaServer = new FigmaService(options.accessToken);
+  const figmaServer = new FigmaService(options.figmaApiKey);
   registerTools(mcpServer, figmaServer, options);
   return mcpServer;
 }
 
-const registerTools = (mcpServer: McpServer, figmaService: FigmaService, options: Omit<CreateServerOptions, "accessToken">) => {
+const registerTools = (mcpServer: McpServer, figmaService: FigmaService, options: Omit<CreateServerOptions, "figmaApiKey">) => {
   const { outputFormat, skipImageDownloads } = options;
   mcpServer.tool(
     getFigmaDataTool.name,

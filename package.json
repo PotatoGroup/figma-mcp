@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "rslib build",
+    "watch": "rslib build --watch",
     "start": "node dist/cli.js"
   },
   "keywords": [

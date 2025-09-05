@@ -2,14 +2,14 @@ import { config as loadEnv } from "dotenv";
 import { resolve } from "path";
 
 interface ServerConfig {
-  accessToken: string;
+  figmaApiKey: string;
   port: number;
   outputFormat: "yaml" | "json";
   skipImageDownloads?: boolean;
 }
 
 interface CliArgs {
-  "access-token"?: string;
+  "figma-api-key"?: string;
   env?: string;
   port?: number;
   json?: boolean;
@@ -20,9 +20,9 @@ export async function getServerConfig(): Promise<ServerConfig> {
   const [yargs, hideBin] = await Promise.all([import("yargs").then(({ default: yargs }) => yargs), import('yargs/helpers').then(({ hideBin }) => hideBin)])
   const argv = yargs(hideBin(process.argv))
     .options({
-      "access-token": {
+      "figma-api-key": {
         type: "string",
-        description: "Figma Access Token",
+        description: "Figma API Key (Personal Access Token)",
       },
       env: {
         type: "string",
@@ -47,7 +47,6 @@ export async function getServerConfig(): Promise<ServerConfig> {
     .version(process.env['NPM_PACKAGE_VERSION'] ?? "unknown")
     .parseSync() as CliArgs;
 
-
   let envFilePath: string;
 
   if (argv["env"]) {
@@ -59,16 +58,16 @@ export async function getServerConfig(): Promise<ServerConfig> {
   loadEnv({ path: envFilePath, override: true });
 
   const config: ServerConfig = {
-    accessToken: "",
+    figmaApiKey: "",
     port: 3333,
     outputFormat: "yaml",
     skipImageDownloads: false,
   };
 
-  if (argv["access-token"]) {
-    config.accessToken = argv["access-token"];
-  } else if (process.env['ACCESS_TOKEN']) {
-    config.accessToken = process.env['ACCESS_TOKEN'];
+  if (argv["figma-api-key"]) {
+    config.figmaApiKey = argv["figma-api-key"];
+  } else if (process.env['FIGMA_API_KEY']) {
+    config.figmaApiKey = process.env['FIGMA_API_KEY'];
   }
 
   if (argv.port) {
@@ -89,10 +88,17 @@ export async function getServerConfig(): Promise<ServerConfig> {
     config.skipImageDownloads = true;
   }
 
-  if (!config.accessToken) {
-    console.error(
-      "Figma ACCESS_TOKEN is required (via CLI argument or .env file)",
-    );
+  if (!config.figmaApiKey) {
+    console.error(`
+❌ Figma API Key is required!
+
+Please provide it via:
+1. Command line: --figma-api-key=YOUR_TOKEN
+2. Environment variable: FIGMA_API_KEY=YOUR_TOKEN
+3. .env file: FIGMA_API_KEY=YOUR_TOKEN
+
+Get your token at: https://www.figma.com/developers/api#access-tokens
+`);
     process.exit(1);
   }
   return config;

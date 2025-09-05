@@ -6,7 +6,7 @@ export default defineConfig({
   mode: 'production',
   lib: [
     {
-      format: 'esm',
+      format: 'cjs',
       syntax: 'esnext',
       bundle: false,
     },

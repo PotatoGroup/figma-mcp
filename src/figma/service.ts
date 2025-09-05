@@ -24,12 +24,12 @@ type SvgOptions = {
 };
 
 export class FigmaService {
-  constructor(private readonly accessToken: string) { }
+  constructor(private readonly figmaApiKey: string) { }
 
   private doFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
     try {
       const headers = {
-        "X-Figma-Token": this.accessToken,
+        "X-Figma-Token": this.figmaApiKey,
       };
       return request<T>(endpoint, {
         headers,
