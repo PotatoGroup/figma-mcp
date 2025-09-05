@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "bin": {
-    "figma-mcp": "dist/cli.js"
+    "figma-ant-mcp": "dist/cli.js"
   },
   "scripts": {
     "build": "rslib build",
