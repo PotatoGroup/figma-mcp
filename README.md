@@ -14,7 +14,7 @@
       "command": "npx",
        "args": [
           "-y",
-          "figma-mcp",
+          "figma-ant-mcp",
           "--figma-api-key=You figma access token"
         ]
     }
@@ -29,7 +29,7 @@
   "mcpServers": {
     "figma-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "figma-mcp", "--figma-api-key=You figma access token"]
+      "args": ["/c", "npx", "-y", "figma-ant-mcp", "--figma-api-key=You figma access token"]
     }
   }
 }
