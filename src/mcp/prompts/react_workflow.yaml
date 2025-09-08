@@ -1,5 +1,5 @@
 name: react_component_generator
-description: 用户想要生成一个react组件时，可以使用这个提示词，来帮助用户生成新的react组件
+description: to write react component code, you need to use figma node data and image data called from tools.
 arguments:
   - name: figma_data
     description: 用户提供的figma节点数据

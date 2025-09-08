@@ -1,6 +1,13 @@
 # Figma MCP
 
-通过mcp服务访问figma地址，根据figma设计coding
+<div align="center">
+  <h1>只需要一个figma地址，即可把设计转换成组件代码</h1>
+
+[![NPM version](https://img.shields.io/npm/v/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)
+[![NPM downloads](http://img.shields.io/npm/dm/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)
+
+</div> 
+
 
 ## 使用
 添加figma mcp到客户端，如Cursor：
