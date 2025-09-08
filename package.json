@@ -1,6 +1,6 @@
 {
   "name": "figma-ant-mcp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -17,7 +17,7 @@
     "modelcontextprotocol"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "files": [
     "bin",
@@ -38,7 +38,7 @@
     "js-yaml": "^4.1.0",
     "remeda": "^2.30.0",
     "sharp": "^0.34.3",
-    "yargs": "^18.0.0",
+    "yargs": "^17.7.2",
     "zod": "^4.1.5"
   },
   "devDependencies": {
