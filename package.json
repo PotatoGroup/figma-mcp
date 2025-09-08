@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/index.js",
   "bin": {
-    "figma-ant-mcp": "dist/cli.js"
+    "figma-ant-mcp": "bin/index.js"
   },
   "scripts": {
     "build": "rslib build",
     "watch": "rslib build --watch",
-    "start": "node dist/cli.js"
+    "start": "node bin/index.js"
   },
   "keywords": [
     "figma",
