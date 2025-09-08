@@ -1,6 +1,6 @@
 {
   "name": "figma-ant-mcp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -39,7 +39,7 @@
     "remeda": "^2.30.0",
     "sharp": "^0.34.3",
     "yargs": "^17.7.2",
-    "zod": "^4.1.5"
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@rslib/core": "^0.12.4",
