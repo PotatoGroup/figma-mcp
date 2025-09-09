@@ -1,9 +1,7 @@
-# Figma Ant MCP
-
 <div align="center">
-  <p style="font-size: 28px; font-weight: bold;">🚀 只需要一个Figma地址，即可把设计转换成组件代码</p>
+  <h1>🚀 只需要一个Figma地址，即可把设计转换成组件代码</h1>
   
-  <p style="font-size: 20px; color: #666;">智能化的Figma到React组件转换工具，支持一键生成高质量的TypeScript组件代码</p>
+  <h3 style="color: #666;">智能化的Figma到React组件转换工具，支持一键生成高质量的TypeScript组件代码</h3>
 
 [![NPM version](https://img.shields.io/npm/v/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)
 [![NPM downloads](http://img.shields.io/npm/dm/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)

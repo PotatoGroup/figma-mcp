@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { parseFigmaUrl, smartParseFigmaInput } from '../../utils/figma-url-parser'
+import { parseFigmaUrl } from '../../utils/figma-url-parser'
 import type { FigmaService } from '../../figma'
 import { getFigmaDataTool, getFigmaImagesTool, reactComponentGeneratorTool } from './index'
 import type { GetFigmaDataParams, GetFigmaImagesParams, ReactComponentGeneratorParams } from './index'
@@ -72,10 +72,8 @@ const figmaWorkflowOrchestrator = async (
       };
     }
 
-    let workflowSteps: string[] = [];
-    let figmaData: any;
+    const workflowSteps: string[] = [];
     let imageData: any;
-    let componentCode: any;
 
     // 步骤2: 获取Figma数据
     workflowSteps.push("🔍 正在获取Figma设计数据...");
@@ -85,7 +83,7 @@ const figmaWorkflowOrchestrator = async (
       depth
     };
 
-    figmaData = await getFigmaDataTool.execute(figmaDataParams, figmaService, outputFormat);
+    const figmaData = await getFigmaDataTool.execute(figmaDataParams, figmaService, outputFormat);
 
     if (figmaData.isError) {
       return {
@@ -135,15 +133,15 @@ const figmaWorkflowOrchestrator = async (
       workflowSteps.push("⏭️ 已跳过图片下载步骤");
     }
 
-    // 步骤4: 生成React组件代码
-    workflowSteps.push("⚛️ 正在生成React组件代码...");
+    // 步骤4: 定义React组件代码规则
+    workflowSteps.push("⚛️ 定义React组件代码生成规则...");
 
     const reactComponentParams: ReactComponentGeneratorParams = {
       figma_data: figmaData.content[0]?.text || '',
       figma_images: imageData.content[0]?.text || ''
     };
 
-    componentCode = await reactComponentGeneratorTool.execute(reactComponentParams);
+    const rules = await reactComponentGeneratorTool.execute(reactComponentParams);
     workflowSteps.push("✅ React组件代码生成完成");
 
     const finalComponentName = componentName || urlInfo.fileName?.replace(/[^a-zA-Z0-9]/g, '') || 'FigmaComponent';
@@ -151,7 +149,7 @@ const figmaWorkflowOrchestrator = async (
     return {
       content: [{
         type: "text" as const,
-        text: `# Figma到React组件转换 🌟
+        text: `# Figma到React组件转换工作流
 
 ## 工作流执行步骤
 ${workflowSteps.map(step => `- ${step}`).join('\n')}
@@ -164,21 +162,12 @@ ${urlInfo.nodeId ? `- **节点ID**: ${urlInfo.nodeId}` : ''}
 - **输出路径**: ${outputPath}
 ${includeImages ? `- **图片路径**: ${imageOutputPath}` : ''}
 
-## 生成的React组件代码
+## Figma数据和规则定义
 
-${componentCode.content[0]?.text || ''}
+${rules.content[0]?.text || ''}
 
-## 使用说明
-1. 将上述代码保存为 \`${finalComponentName}.tsx\` 文件
-2. 确保项目中已安装相关依赖 (React, TypeScript等)
-${includeImages ? '3. 图片资源已保存到指定目录，请确保在组件中正确引用' : ''}
-3. 根据需要调整样式和交互逻辑
-
----
-*由 figma-mcp 自动生成 | ${new Date().toLocaleString()}*`
-      }]
+`}]
     };
-
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     return {
@@ -193,7 +182,7 @@ ${includeImages ? '3. 图片资源已保存到指定目录，请确保在组件�
 
 export const figmaWorkflowOrchestratorTool = {
   name: "figma_workflow_orchestrator",
-  description: "智能Figma工作流编排器：输入Figma URL，自动获取设计数据、下载图片资源、生成React组件代码的完整流程（首选）",
+  description: "智能Figma工作流：根据输入的Figma URL，自动获取设计数据、下载图片资源、生成React组件代码的完整流程（首选）",
   parameters,
   execute: figmaWorkflowOrchestrator,
 };

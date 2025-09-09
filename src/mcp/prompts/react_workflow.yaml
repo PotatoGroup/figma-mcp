@@ -51,7 +51,7 @@ messages:
         - 确定组件的Props接口设计
 
         ### 2. 样式实现
-        - 精确还原Figma设计的视觉效果
+        - 精确还原Figma设计的视觉效果，严格还原设计排版
         - 使用FlexBox/Grid实现响应式布局
         - 支持主题切换和样式定制
         - 图片使用相对路径引用，添加alt属性
@@ -178,6 +178,12 @@ messages:
         /* 项目中使用的样式方案 index.[Less、SCSS、CSS Modules或Styled Components] */
         /* 样式定义 */
         ```
+
+        ## 📝 使用说明
+        1. 将上述代码保存为 \`${finalComponentName}/index.tsx\` 文件
+        2. 确保项目中已安装相关依赖 (React, TypeScript等)
+        3. 图片资源已保存到指定目录，请确保在组件中正确引用
+        4. 根据需要调整样式和交互逻辑
 
         ## ⚡ 最佳实践提醒
 
