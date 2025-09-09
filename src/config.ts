@@ -5,7 +5,7 @@ interface ServerConfig {
   figmaApiKey: string;
   port: number;
   outputFormat: "yaml" | "json";
-  skipImageDownloads?: boolean;
+  includeImages?: boolean;
 }
 
 interface CliArgs {
@@ -13,7 +13,7 @@ interface CliArgs {
   env?: string;
   port?: number;
   json?: boolean;
-  "skip-image-downloads"?: boolean;
+  "include-images"?: boolean;
 }
 
 export async function getServerConfig(): Promise<ServerConfig> {
@@ -37,10 +37,10 @@ export async function getServerConfig(): Promise<ServerConfig> {
         description: "Output data from tools in JSON format instead of YAML",
         default: false,
       },
-      "skip-image-downloads": {
+      "include-images": {
         type: "boolean",
-        description: "Do not register the download_figma_images tool (skip image downloads)",
-        default: false,
+        description: "Include images in the output",
+        default: true,
       },
     })
     .help()
@@ -61,7 +61,7 @@ export async function getServerConfig(): Promise<ServerConfig> {
     figmaApiKey: "",
     port: 3333,
     outputFormat: "yaml",
-    skipImageDownloads: false,
+    includeImages: true,
   };
 
   if (argv["figma-api-key"]) {
@@ -82,10 +82,10 @@ export async function getServerConfig(): Promise<ServerConfig> {
     config.outputFormat = process.env['OUTPUT_FORMAT'] as "yaml" | "json";
   }
 
-  if (argv["skip-image-downloads"]) {
-    config.skipImageDownloads = true;
-  } else if (process.env['SKIP_IMAGE_DOWNLOADS'] === "true") {
-    config.skipImageDownloads = true;
+  if (argv["include-images"]) {
+    config.includeImages = true;
+  } else if (process.env['INCLUDE_IMAGES'] === "true") {
+    config.includeImages = true;
   }
 
   if (!config.figmaApiKey) {

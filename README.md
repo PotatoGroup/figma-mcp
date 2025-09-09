@@ -1,9 +1,9 @@
-# Figma MCP
+# Figma Ant MCP
 
 <div align="center">
-  <h1>🚀 只需要一个Figma地址，即可把设计转换成组件代码</h1>
+  <p style="font-size: 28px; font-weight: bold;">🚀 只需要一个Figma地址，即可把设计转换成组件代码</p>
   
-  <p>智能化的Figma到React组件转换工具，支持一键生成高质量的TypeScript组件代码</p>
+  <p style="font-size: 20px; color: #666;">智能化的Figma到React组件转换工具，支持一键生成高质量的TypeScript组件代码</p>
 
 [![NPM version](https://img.shields.io/npm/v/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)
 [![NPM downloads](http://img.shields.io/npm/dm/figma-ant-mcp.svg?style=flat)](https://npmjs.com/package/figma-ant-mcp)
@@ -41,7 +41,7 @@ https://www.figma.com/file/abc123/MyDesign?node-id=1:2
 
 添加figma-mcp到客户端，如Cursor：
 
-### MacOS / Linux
+#### MacOS / Linux
 
 ```json
 {
@@ -58,7 +58,7 @@ https://www.figma.com/file/abc123/MyDesign?node-id=1:2
 }
 ```
 
-### Windows
+#### Windows
 
 ```json
 {
@@ -73,7 +73,7 @@ https://www.figma.com/file/abc123/MyDesign?node-id=1:2
 
 **可选参数：**
 - `--json` 输出 JSON 格式（默认 YAML）
-- `--skip-image-downloads` 禁用图片下载工具
+- `--include-images` 启用图片下载工具（默认是开启）
 
 ## 🛠️ 工具说明
 
@@ -87,8 +87,7 @@ https://www.figma.com/file/abc123/MyDesign?node-id=1:2
 
 ## 📖 更多文档
 
-- [工作流优化说明](./docs/WORKFLOW_OPTIMIZATION.md) - 详细的优化特性和技术架构
-- [使用示例](./examples/usage-example.md) - 完整的使用示例和最佳实践
+- [使用示例](./docs/usage-example.md) - 完整的使用示例和最佳实践
 
 ## 🤝 贡献
 

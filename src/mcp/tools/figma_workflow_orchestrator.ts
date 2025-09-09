@@ -31,6 +31,11 @@ const parameters = {
     .number()
     .optional()
     .describe("Figma节点遍历深度，默认为10"),
+  json: z
+    .boolean()
+    .optional()
+    .default(false)
+    .describe("是否输出JSON格式，默认为YAML格式"),
 };
 
 const parametersSchema = z.object(parameters);
@@ -188,7 +193,7 @@ ${includeImages ? '3. 图片资源已保存到指定目录，请确保在组件�
 
 export const figmaWorkflowOrchestratorTool = {
   name: "figma_workflow_orchestrator",
-  description: "智能Figma工作流编排器：输入Figma URL，自动获取设计数据、下载图片资源、生成React组件代码的完整流程",
+  description: "智能Figma工作流编排器：输入Figma URL，自动获取设计数据、下载图片资源、生成React组件代码的完整流程（首选）",
   parameters,
   execute: figmaWorkflowOrchestrator,
 };
